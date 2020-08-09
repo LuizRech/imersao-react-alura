@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 
 function CadastroCategoria() {
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categorias';
+
+    fetch(URL)
+      .then(async (response) => {
+        const resp = await response.json();
+        setCateg([
+          ...resp,
+        ])
+      })
+  }, []);
+
   const valoresIniciais = {
     name: '',
     desc: '',
