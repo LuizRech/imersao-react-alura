@@ -5,7 +5,7 @@ import FormField from '../../../components/FormField';
 
 function CadastroCategoria() {
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.hostname === "localhost" ? 'http://localhost:8080/categorias' : 'https://imersao-react-lz.herokuapp.com/categorias';
 
     fetch(URL)
       .then(async (response) => {
